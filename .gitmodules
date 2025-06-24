@@ -1,0 +1,6 @@
+[submodule "libsrcs/sobo_app_tpl_kt"]
+	path = libsrcs/sobo_app_tpl_kt
+	url = git@github.com:krzysobo/sobo_app_tpl_kt.git
+[submodule "libsrcs/sobo_crypto_lib_kt"]
+	path = libsrcs/sobo_crypto_lib_kt
+	url = git@github.com:krzysobo/sobo_crypto_lib_kt.git

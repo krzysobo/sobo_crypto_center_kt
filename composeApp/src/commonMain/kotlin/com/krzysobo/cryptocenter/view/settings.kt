@@ -14,12 +14,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
-import apptpl.composeapp.generated.resources.Res
-import apptpl.composeapp.generated.resources.s_settings
-import apptpl.composeapp.generated.resources.settings_updated_ok
-import apptpl.composeapp.generated.resources.settings_updated_ok_desc
-import apptpl.composeapp.generated.resources.settings_updating_error
-import apptpl.composeapp.generated.resources.update_settings
 import com.krzysobo.cryptocenter.settings.langListCryptoCenter
 import com.krzysobo.cryptocenter.viewmodel.SettingsPageVM
 import com.krzysobo.cryptocenter.viewmodel.getSettingsPageVM
@@ -31,6 +25,12 @@ import com.krzysobo.soboapptpl.widgets.PageHeader
 import com.krzysobo.soboapptpl.widgets.SettingSelectLanguage
 import com.krzysobo.soboapptpl.widgets.SettingUseSystemLang
 import kotlinx.coroutines.launch
+import sobocryptocenter.composeapp.generated.resources.Res
+import sobocryptocenter.composeapp.generated.resources.s_settings
+import sobocryptocenter.composeapp.generated.resources.settings_updated_ok
+import sobocryptocenter.composeapp.generated.resources.settings_updated_ok_desc
+import sobocryptocenter.composeapp.generated.resources.settings_updating_error
+import sobocryptocenter.composeapp.generated.resources.update_settings
 
 
 @Composable

@@ -7,8 +7,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.window.FrameWindowScope
-import apptpl.composeapp.generated.resources.Res
-import apptpl.composeapp.generated.resources.app_name_sobo_crypto_center_desktop
+import sobocryptocenter.composeapp.generated.resources.Res
+import sobocryptocenter.composeapp.generated.resources.app_name_sobo_crypto_center_desktop
 import com.krzysobo.cryptocenter.settings.SCC_ROUTE_HANDLE
 import com.krzysobo.cryptocenter.settings.soboCryptoCenterRouteHandlesForDesktopMenu
 import com.krzysobo.cryptocenter.settings.soboCryptoCenterRoutes
@@ -40,7 +40,7 @@ fun SoboCryptoCenterDesktopApp() {
 
 
 @Composable
-fun FrameWindowScope.SoboCryptoCenterDesktopAppTheme() {
+fun FrameWindowScope.DesktopApp() {
     SoboTheme {
         Column {
             Column {

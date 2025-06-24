@@ -1,12 +1,12 @@
 package com.krzysobo.cryptocenter.settings
 
-import apptpl.composeapp.generated.resources.Res
-import apptpl.composeapp.generated.resources.about
-import apptpl.composeapp.generated.resources.decrypt
-import apptpl.composeapp.generated.resources.encrypt
-import apptpl.composeapp.generated.resources.help
-import apptpl.composeapp.generated.resources.settings
-import apptpl.composeapp.generated.resources.welcome
+import sobocryptocenter.composeapp.generated.resources.Res
+import sobocryptocenter.composeapp.generated.resources.about
+import sobocryptocenter.composeapp.generated.resources.decrypt
+import sobocryptocenter.composeapp.generated.resources.encrypt
+import sobocryptocenter.composeapp.generated.resources.help
+import sobocryptocenter.composeapp.generated.resources.settings
+import sobocryptocenter.composeapp.generated.resources.welcome
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.SoboRoute
 import com.krzysobo.cryptocenter.view.PageAboutSoboCryptoCenter

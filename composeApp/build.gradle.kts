@@ -69,7 +69,7 @@ android {
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
-        versionName = "1.0.1"
+        versionName = "1.2.0"
     }
     packaging {
         resources {
@@ -115,7 +115,7 @@ compose.desktop {
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "com.krzysobo.cryptocenter"
-            packageVersion = "1.1.1"
+            packageVersion = "1.2.0"
         }
     }
 }

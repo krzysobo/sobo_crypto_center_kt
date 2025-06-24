@@ -13,9 +13,9 @@ import androidx.compose.ui.platform.ClipboardManager
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
-import apptpl.composeapp.generated.resources.Res
-import apptpl.composeapp.generated.resources.copy_result_plaintext
-import apptpl.composeapp.generated.resources.plaintext
+import sobocryptocenter.composeapp.generated.resources.Res
+import sobocryptocenter.composeapp.generated.resources.copy_result_plaintext
+import sobocryptocenter.composeapp.generated.resources.plaintext
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.anyResText
 import com.krzysobo.soboapptpl.widgets.TextFieldWithErrorsKeyboardSettings

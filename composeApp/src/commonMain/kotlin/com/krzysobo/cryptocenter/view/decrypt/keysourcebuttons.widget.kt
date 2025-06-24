@@ -14,10 +14,10 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import apptpl.composeapp.generated.resources.Res
-import apptpl.composeapp.generated.resources.from_password
-import apptpl.composeapp.generated.resources.get_secret_key
-import apptpl.composeapp.generated.resources.paste
+import sobocryptocenter.composeapp.generated.resources.Res
+import sobocryptocenter.composeapp.generated.resources.from_password
+import sobocryptocenter.composeapp.generated.resources.get_secret_key
+import sobocryptocenter.composeapp.generated.resources.paste
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.anyResText
 import com.krzysobo.cryptocenter.viewmodel.DecryptPageVM

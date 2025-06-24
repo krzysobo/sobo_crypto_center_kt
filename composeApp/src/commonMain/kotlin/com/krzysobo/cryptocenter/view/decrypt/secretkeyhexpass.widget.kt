@@ -14,11 +14,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import apptpl.composeapp.generated.resources.Res
-import apptpl.composeapp.generated.resources.cancel
-import apptpl.composeapp.generated.resources.from_password
-import apptpl.composeapp.generated.resources.password
-import apptpl.composeapp.generated.resources.password_required
+import sobocryptocenter.composeapp.generated.resources.Res
+import sobocryptocenter.composeapp.generated.resources.cancel
+import sobocryptocenter.composeapp.generated.resources.from_password
+import sobocryptocenter.composeapp.generated.resources.password
+import sobocryptocenter.composeapp.generated.resources.password_required
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.anyResText
 import com.krzysobo.soboapptpl.widgets.PasswordWidget

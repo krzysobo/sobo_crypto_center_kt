@@ -1,6 +1,6 @@
 package com.krzysobo.cryptocenter
 
-val appVersion = "1.0.1"
+val appVersion = "1.2.0"
 
 
 

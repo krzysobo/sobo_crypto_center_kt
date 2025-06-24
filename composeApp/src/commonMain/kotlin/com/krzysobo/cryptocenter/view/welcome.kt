@@ -7,9 +7,9 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import apptpl.composeapp.generated.resources.Res
-import apptpl.composeapp.generated.resources.welcome_s
-import apptpl.composeapp.generated.resources.welcome_story_sobo_crypto_center
+import sobocryptocenter.composeapp.generated.resources.Res
+import sobocryptocenter.composeapp.generated.resources.welcome_s
+import sobocryptocenter.composeapp.generated.resources.welcome_story_sobo_crypto_center
 import com.krzysobo.cryptocenter.appVersion
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.anyResText

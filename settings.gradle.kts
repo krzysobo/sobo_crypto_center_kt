@@ -1,4 +1,4 @@
-rootProject.name = "AppTpl"
+rootProject.name = "SoboCryptoCenter"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {

@@ -29,8 +29,9 @@ kotlin {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
 
-            implementation(project(":soboCryptoLib", ""))
-            implementation(project(":soboAppTpl", ""))
+            // using API instead of implementation to have access to resources
+            api(project(":soboCryptoLib", ""))
+            api(project(":soboAppTpl", ""))
         }
 
         commonMain.dependencies {

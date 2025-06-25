@@ -17,8 +17,7 @@ import androidx.compose.ui.unit.dp
 import sobocryptocenter.composeapp.generated.resources.Res
 import sobocryptocenter.composeapp.generated.resources.cancel
 import sobocryptocenter.composeapp.generated.resources.from_password
-import sobocryptocenter.composeapp.generated.resources.password
-import sobocryptocenter.composeapp.generated.resources.password_required
+import com.krzysobo.soboapptpl.pubres.PubRes as AppTplPubRes
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.anyResText
 import com.krzysobo.soboapptpl.widgets.PasswordWidget
@@ -46,9 +45,9 @@ fun SecretKeyHexSrcPassWidget() {
                 },
                 isError = vm.isErrorSecretKeyHexSrcPass.value,
 //            focusManager = focusManager,
-                labelText = anyResText(AnyRes(Res.string.password)),
-                placeHolderText = anyResText(AnyRes(Res.string.password)),
-                errorText = anyResText(AnyRes(Res.string.password_required)),
+                labelText = anyResText(AnyRes(AppTplPubRes.string.password)),
+                placeHolderText = anyResText(AnyRes(AppTplPubRes.string.password)),
+                errorText = anyResText(AnyRes(AppTplPubRes.string.password_required)),
                 trailingIconPassOnClick = { vm.toggleSecretKeyHexSrcPassVisible() },
                 isPassVisible = vm.isSecretKeyHexSrcPassVisible.value,
                 isReadOnly = false

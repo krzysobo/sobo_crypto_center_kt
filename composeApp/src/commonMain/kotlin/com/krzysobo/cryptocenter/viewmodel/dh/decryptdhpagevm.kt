@@ -10,7 +10,7 @@ import com.krzysobo.soboapptpl.widgets.validateWithLambda
 import com.krzysobo.sobocryptolib.crypto.service.CryptoService
 import com.krzysobo.sobocryptolib.crypto.service.X25519KeyPairBytes
 
-class EncryptDhPageVM : SoboViewModel() {
+class DecryptDhPageVM : SoboViewModel() {
     var plaintext: MutableState<String> = mutableStateOf("")
     var ciphertextHex: MutableState<String> = mutableStateOf("")
 
@@ -32,8 +32,9 @@ class EncryptDhPageVM : SoboViewModel() {
     var isTheirPublicKeyHexVisible: MutableState<Boolean> = mutableStateOf(false)
     // ---- /OUR public key hex -----
 
-    var isErrorPlaintext: MutableState<Boolean> = mutableStateOf(false)
-    var isErrorCiphertext: MutableState<Boolean> = mutableStateOf(false)
+//    var isErrorPlaintext: MutableState<Boolean> = mutableStateOf(false)
+
+    var isErrorCiphertextHex: MutableState<Boolean> = mutableStateOf(false)
     var isErrorSecretKeyHex: MutableState<Boolean> = mutableStateOf(false)
     var isErrorOurPublicKeyHex: MutableState<Boolean> = mutableStateOf(false)
     var isErrorTheirPublicKeyHex: MutableState<Boolean> = mutableStateOf(false)
@@ -57,19 +58,6 @@ class EncryptDhPageVM : SoboViewModel() {
         isTheirPublicKeyHexVisible.value = false
 
         clearErrors()
-    }
-
-    fun doGenerateDhKeyPair() {
-        val pair: X25519KeyPairBytes = CryptoService().makeDhKeyPairAsBytes()
-
-        secretKeyBytes.value = pair.private
-        secretKeyHex.value = CryptoService().bytesToHex(pair.private)
-
-        ourPublicKeyBytes.value = pair.public
-        ourPublicKeyHex.value = CryptoService().bytesToHex(pair.public)
-
-        validateSecretKeyHex(secretKeyHex.value)
-        validateOurPublicKeyHex(ourPublicKeyHex.value)
     }
 
     @OptIn(ExperimentalStdlibApi::class)
@@ -101,15 +89,20 @@ class EncryptDhPageVM : SoboViewModel() {
     }
 
     @OptIn(ExperimentalStdlibApi::class)
-    fun doPastePlaintextFromClipboard(clipboardManager: ClipboardManager) {
+    fun doPasteCiphertextHexFromClipboard(clipboardManager: ClipboardManager) {
         clipboardManager.getText()?.text?.let {
             if (it != "") {
-                plaintext.value = it
+                ciphertextHex.value = it
             }
         }
     }
 
     @OptIn(ExperimentalStdlibApi::class)
+    fun doCopyPlaintextToClipboard(clipboardManager: ClipboardManager) {
+        val pt = plaintext.value
+        clipboardManager.setText(buildAnnotatedString { append(pt) })
+    }
+
     fun doCopySecretKeyHexToClipboard(clipboardManager: ClipboardManager) {
         val key = secretKeyHex.value
         println("COPYING SECRET KEY HEX TO CLIPBOARD -- 00 -- $key")
@@ -149,8 +142,8 @@ class EncryptDhPageVM : SoboViewModel() {
     }
 
     @OptIn(ExperimentalStdlibApi::class)
-    suspend fun doEncrypt(): Boolean {
-        println("\nEncrypting the text '${plaintext.value}'.... \n")
+    suspend fun doDecrypt(): Boolean {
+        println("\nDecrypting the ciphertextHex '${ciphertextHex.value}'.... \n")
         try {
             val valRes = validate()
             if (!valRes) {
@@ -167,16 +160,13 @@ class EncryptDhPageVM : SoboViewModel() {
 
             val aesKey = CryptoService().deriveAesKeyFromSharedSecretSimple(sharedSecret)
 
-            ciphertextHex.value = CryptoService().aesGcmEncryptToPortableHexForDh(
-                plaintext = plaintext.value.toByteArray(),
+            plaintext.value = CryptoService().aesGcmDecryptFromDhPortableHex(
+                ciphertextHex = ciphertextHex.value,
                 aesKey = aesKey,
-                nonce = CryptoService().makeNonce(),
-                ourPublicKey = ourPublicKeyBytes.value,
-                associatedData = CryptoService().makeAssociatedData(),
-                salt = null
-            )
-            println("---------> doEncrypt-222222")
-            println("---------> doEncrypt-333333 ${ciphertextHex.value}")
+                ourPublicKey = ourPublicKeyBytes.value
+            ).decodeToString()
+
+            println("---------> doDecrypt-333333 ${plaintext.value}")
 
             isFormSent.value = true
             isApiError.value = false
@@ -184,7 +174,7 @@ class EncryptDhPageVM : SoboViewModel() {
 
             return true
         } catch (e: Exception) {
-            println("----> doEncrypt ERROR: ${e.message} ")
+            println("----> doDecrypt ERROR: ${e.message} ")
             isApiError.value = true
             apiErrorDetails.value = "${e.message}"
         }
@@ -213,23 +203,23 @@ class EncryptDhPageVM : SoboViewModel() {
     // TODO - move to Decrypt DH!!!
     fun validateCiphertextHex(ciphertext: String): Boolean {
         val res = strNotEmpty(ciphertextHex.value)
-        isErrorCiphertext.value = !res
+        isErrorCiphertextHex.value = !res
         return res
     }
 
     fun validate(): Boolean {
         clearErrors()
-        val resPlaintext = validateWithLambda(isErrorPlaintext, { strNotEmpty(plaintext.value) })
+        val resCiphertextHex = validateWithLambda(isErrorCiphertextHex, { strNotEmpty(ciphertextHex.value) })
         val resSecretKeyHex = validateSecretKeyHex(secretKeyHex.value)
         val resOurPublicKeyHex = validateOurPublicKeyHex(ourPublicKeyHex.value)
         val resTheirPublicKeyHex = validateTheirPublicKeyHex(theirPublicKeyHex.value)
-        var res = resPlaintext && resSecretKeyHex && resOurPublicKeyHex && resTheirPublicKeyHex
+        var res = resCiphertextHex && resSecretKeyHex && resOurPublicKeyHex && resTheirPublicKeyHex
 
         return res
     }
 
-    fun clearPlaintextError() {
-        clearErrorFlag(isErrorPlaintext)
+    fun clearCiphertextHexError() {
+        clearErrorFlag(isErrorCiphertextHex)
     }
 
     fun clearSecretKeyHexError() {
@@ -245,7 +235,7 @@ class EncryptDhPageVM : SoboViewModel() {
     }
 
     fun clearErrors() {
-        clearPlaintextError()
+        clearCiphertextHexError()
         clearSecretKeyHexError()
         clearOurPublicKeyHexError()
         clearTheirPublicKeyHexError()

@@ -1,5 +1,6 @@
 package com.krzysobo.cryptocenter.viewmodel
 
+import com.krzysobo.cryptocenter.viewmodel.dh.DecryptDhPageVM
 import com.krzysobo.cryptocenter.viewmodel.dh.EncryptDhPageVM
 
 
@@ -9,6 +10,10 @@ fun getEncryptPageVM(): EncryptPageVM {
 
 fun getEncryptDhPageVM(): EncryptDhPageVM {
     return AllViewModels.encryptDhPageVM
+}
+
+fun getDecryptDhPageVM(): DecryptDhPageVM {
+    return AllViewModels.decryptDhPageVM
 }
 
 fun getDecryptPageVM(): DecryptPageVM {
@@ -21,9 +26,11 @@ fun getSettingsPageVM(): SettingsPageVM {
 
 private object AllViewModels {
     val encryptPageVM = EncryptPageVM()
-    val encryptDhPageVM = EncryptDhPageVM()
-
     val decryptPageVM = DecryptPageVM()
+
+    val encryptDhPageVM = EncryptDhPageVM()
+    val decryptDhPageVM = DecryptDhPageVM()
+
     val settingsPageVM = SettingsPageVM()
 }
 

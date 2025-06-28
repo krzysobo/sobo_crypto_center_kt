@@ -7,16 +7,12 @@
         encryption and decryption of text using AES-GCM (symmetric) and (TODO) Diffie-Hellman's (hybrid) algorithms.
     </string>
 
-    <string name="app_name_sobo_crypto_center_desktop">Sobo Crypto Center Desktop App</string>
-
+    <string name="app_name_sobo_crypto_center_desktop">Sobo Crypto Center</string>
     <string name="app_name_android">Sobo Crypto Center</string>
 
     <string name="home">Home</string>
-
     <string name="go_back">Go back</string>
-
     <string name="dashboard">Dashboard</string>
-    <string name="dashboard_long_s">%1$s Dashboard - user's own homepage</string>
 
     <string name="update_settings">Update Settings</string>
     <string name="settings_updated_ok">Settings Updated OK</string>
@@ -29,7 +25,6 @@
     <string name="s_help">%1$s - Help</string>
     <string name="s_settings">%1$s - Settings</string>
 
-
     <string name="about">About</string>
     <string name="about_s">About %1$s</string>
     <string name="help">Help</string>
@@ -40,7 +35,6 @@
     <string name="list">List</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
-
 
     <string name="open_menu">Open Menu</string>
     <string name="close_menu">Close Menu</string>
@@ -59,58 +53,15 @@
     <string name="ok">OK</string>
     <string name="cancel">CANCEL</string>
 
-
     <string name="email">Email</string>
 
     <!-- errors -->
     <string name="error_occurred">Error has occurred!</string>
-
-    <!-- HttpService:100 TODO -->
-    <string name="error_network_unavailable">Network is unavailable - check your connection.</string>
-    <string name="error_network_error">Network error</string>
-    <string name="error_network_error_desc">Network error has occurred. Please check your network connection and try again.</string>
-    <string name="error_network_error_s">Network error. Please check your network connection or contact your site administrator. Message: %1$s</string>
-
-    <!-- HttpService:107 TODO -->
-    <string name="error_no_api_server_found_s">no API server found at %1$s - check your network connection and client configuration.</string>
-
-    <!-- HttpService:141 TODO -->
-    <string name="error_incorrect_login_pass">Incorrect login or password.</string>
-    <string name="error_login_error">Login Error</string>
-    <string name="error_bad_credentials_long_p1">Bad credentials (login or password).
-        Please provide your valid credentials and try again, or
-    </string>
-
-    <string name="error_bad_credentials_long_p2">*register*</string>
-    <string name="error_bad_credentials_long_p3">if you don't have an account here, and then</string>
-    <string name="error_bad_credentials_long_p4">*activate*</string>
-    <string name="error_bad_credentials_long_p5">your newly created account.</string>
-
-    <!-- HttpService:252 TODO -->
-    <string name="error_not_authorized">Not authorized.</string>
-
-    <!-- HttpService:143, 446 TODO -->
-    <string name="error_api_error">API Error</string>
-    <string name="error_api_error_desc">API Error. Please check your network connection and settings.</string>
-
-    <!-- HttpService:276, 300 TODO -->
-    <string name="error_connection_failed">Connection failed.</string>
-
-    <!-- HttpService:205 TODO -->
-    <string name="error_could_not_confirm_registration_s">Could not confirm registration of %1$s.</string>
-
-    <!-- HttpService:436 TODO -->
-    <string name="error_account_exists_s">An account with email %1$s already exists.</string>
-
-    <!-- HttpService:440 TODO -->
-    <string name="error_email_invalid_s">Email %1$s is invalid.</string>
-    <string name="error_unknown_error">An unknown API error occurred, please contact your site administrator.</string>
-    <string name="error_profile_updating_error">PROFILE UPDATING ERROR</string>
+    <string name="error_unknown_error">An unknown error occurred.</string>
 
     <!-- crypto center -->
     <string name="encrypt">Encrypt</string>
     <string name="decrypt">Decrypt</string>
-
 
     <string name="language">
         Language
@@ -204,5 +155,29 @@
     <string name="cryptocenter_encryption">
         Sobo Crypto Center - Encryption
     </string>
+
+    <!-- Diffie-Hellman's -->
+    <string name="their_public_key_hex">Their public key</string>
+    <string name="their_public_key_hex_required">Their public key is required</string>
+
+    <string name="our_public_key_hex">Our public key</string>
+    <string name="our_public_key_hex_required">Our public key is required</string>
+
+    <string name="our_secret_key_hex">Our private key</string>
+    <string name="our_secret_key_hex_required">Our private key is required</string>
+
+    <string name="generate_key_pair">Generate Key Pair</string>
+
+    <string name="paste_our_secret_key">Paste our private Key</string>
+    <string name="paste_our_public_key">Paste our public Key</string>
+
+    <string name="encrypt_dh">Encrypt (Diffie-Hellman's)</string>
+    <string name="decrypt_dh">Decrypt (Diffie-Hellman's)</string>
+    <string name="dh_ops">Diffie-Hellman's</string>
+
+    <string name="cryptocenter_encryption_dh">Encryption (Diffie-Hellman's)</string>
+    <string name="cryptocenter_decryption_dh">Decryption (Diffie-Hellman's)</string>
+
+
 
 </resources>

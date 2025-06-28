@@ -1,5 +1,6 @@
 package com.krzysobo.cryptocenter.view
 
+import WaitingSpinner
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -19,11 +20,13 @@ import com.krzysobo.cryptocenter.viewmodel.SettingsPageVM
 import com.krzysobo.cryptocenter.viewmodel.getSettingsPageVM
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.anyResText
+import com.krzysobo.soboapptpl.viewmodel.AppViewModelVM
 import com.krzysobo.soboapptpl.widgets.ErrorMessageBox
 import com.krzysobo.soboapptpl.widgets.MessageBox
 import com.krzysobo.soboapptpl.widgets.PageHeader
 import com.krzysobo.soboapptpl.widgets.SettingSelectLanguage
 import com.krzysobo.soboapptpl.widgets.SettingUseSystemLang
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import sobocryptocenter.composeapp.generated.resources.Res
 import sobocryptocenter.composeapp.generated.resources.s_settings
@@ -61,59 +64,72 @@ fun PageSoboCryptoCenterSettings() {
 //    ) {
 //
 //    }
+    var showColumn = remember { mutableStateOf(true) }
+    if (showColumn.value) {
 
-    LazyColumn(
-        modifier = Modifier
-            .padding(all = 10.dp)
-            .fillMaxWidth(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally,
-    ) {
+        LazyColumn(
+            modifier = Modifier
+                .padding(all = 10.dp)
+                .fillMaxWidth(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
 
-        item {
-            PageHeader(anyResText(AnyRes(Res.string.s_settings, arrayOf("Sobo Crypto Center"))))
-        }
-
-        item {
-            if (vm.isFormSent.value) {
-                MessageBox(
-                    "* ${anyResText(AnyRes(Res.string.settings_updated_ok))} *",
-                    anyResText(AnyRes(Res.string.settings_updated_ok_desc))
-                )
-            } else if (vm.isApiError.value) {
-                ErrorMessageBox(
-                    "* ${anyResText(AnyRes(Res.string.settings_updating_error))} *",
-                    vm.apiErrorDetails.value
-                )
+            item {
+                PageHeader(anyResText(AnyRes(Res.string.s_settings, arrayOf("Sobo Crypto Center"))))
             }
-        }
 
-        item {
-            val focusManager = LocalFocusManager.current
-
-            SettingUseSystemLang(vm.langSettings.useSystemLang)
-            if (!vm.langSettings.useSystemLang.value) {
-                SettingSelectLanguage(langListCryptoCenter, vm.langSettings.lang)
+            item {
+                if (vm.isFormSent.value) {
+                    MessageBox(
+                        "* ${anyResText(AnyRes(Res.string.settings_updated_ok))} *",
+                        anyResText(AnyRes(Res.string.settings_updated_ok_desc))
+                    )
+                } else if (vm.isApiError.value) {
+                    ErrorMessageBox(
+                        "* ${anyResText(AnyRes(Res.string.settings_updating_error))} *",
+                        vm.apiErrorDetails.value
+                    )
+                }
             }
-        }
 
-        item {
+            item {
+                val focusManager = LocalFocusManager.current
 
-            Button(
-                onClick = {
-                    vm.clearErrors()
-                    val resForm: Boolean = vm.validate()
-                    if (resForm) {
-                        coroutineScope.launch {
-                            val res = vm.doUpdateAppSettings()
-                            if (res) {
-                                vm.doRefreshSettingsFromAppSettings()
+                SettingUseSystemLang(vm.langSettings.useSystemLang)
+                if (!vm.langSettings.useSystemLang.value) {
+                    SettingSelectLanguage(langListCryptoCenter, vm.langSettings.lang)
+                }
+            }
+
+            item {
+
+                Button(
+                    onClick = {
+                        vm.clearErrors()
+                        val resForm: Boolean = vm.validate()
+                        if (resForm) {
+                            coroutineScope.launch {
+                                val res = vm.doUpdateAppSettings()
+                                if (res) {
+                                    vm.doRefreshSettingsFromAppSettings()
+                                    coroutineScope.launch {
+                                        showColumn.value = false
+                                        AppViewModelVM.hideMenu()
+                                        delay(700)
+                                        showColumn.value = true
+                                        delay(100)
+                                        AppViewModelVM.showMenu()
+                                    }
+                                }
                             }
                         }
-                    }
-                },
-                modifier = Modifier.padding(all = 10.dp)
-            ) { Text(anyResText(AnyRes(Res.string.update_settings))) }
+                    },
+                    modifier = Modifier.padding(all = 10.dp)
+                ) { Text(anyResText(AnyRes(Res.string.update_settings))) }
+            }
         }
+    } else {
+        WaitingSpinner()
     }
 }

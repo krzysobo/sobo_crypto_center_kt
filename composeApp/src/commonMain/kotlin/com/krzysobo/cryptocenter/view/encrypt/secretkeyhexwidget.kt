@@ -72,7 +72,6 @@ fun SecretKeyHexWidget() {
 
         IconButton(
             onClick = {
-//                println("PASTE CLICKED FOR HEX KEY!!! ")
                 vm.doPasteKeyHexFromClipboard(clipboardManager)
             }
         ) {

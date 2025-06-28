@@ -9,12 +9,11 @@
         Diffie-Hellman's (hybrydowy) oraz RSA-AES (hybrydowy).
     </string>
 
-    <string name="app_name_sobo_crypto_center_desktop">Sobo Crypto Center Desktop App</string>
+    <string name="app_name_sobo_crypto_center_desktop">Sobo Crypto Center</string>
 
     <string name="app_name_android">Sobo Crypto Center</string>
 
     <string name="home">Dom</string>
-
     <string name="go_back">Cofnij</string>
 
     <string name="update_settings">Zaktualizuj ustawienia</string>
@@ -22,13 +21,11 @@
     <string name="settings_updated_ok_desc">Ustawienia zostały pomyślnie zaktualizowane.</string>
     <string name="settings_updating_error">Błąd aktualizacji ustawień</string>
 
-
     <string name="actions">Akcje</string>
 
     <string name="s_about">%1$s - O programie</string>
     <string name="s_help">%1$s - Pomoc</string>
     <string name="s_settings">%1$s - Ustawienia</string>
-
 
     <string name="about">Informacje</string>
     <string name="about_s">Informacje o %1$s</string>
@@ -40,7 +37,6 @@
     <string name="list">Lista</string>
     <string name="edit">Edytuj</string>
     <string name="delete">Usuń</string>
-
 
     <string name="open_menu">Otwórz menu</string>
     <string name="close_menu">Zamknij menu</string>
@@ -63,53 +59,10 @@
 
     <!-- errors -->
     <string name="error_occurred">Wystąpił błąd!</string>
-
-    <!-- HttpService:100 TODO -->
-    <string name="error_network_unavailable">Sieć jest niedostępna - sprawdź swoje połączenie.</string>
-    <string name="error_network_error">Błąd sieci</string>
-    <string name="error_network_error_desc">Wystąpił błąd sieci. Proszę sprawdzić połączenie i spróbować ponownie.</string>
-    <string name="error_network_error_s">Błąd sieci. Proszę sprawdzić połączenie lub skontakować się z administratorem. Komunikat błędu: %1$s</string>
-
-    <!-- HttpService:107 TODO -->
-    <string name="error_no_api_server_found_s">Serwer API nie został znaleziony pod adresem %1$s - sprawdź swoje połączenie i ustawienia aplikacji.</string>
-
-    <!-- HttpService:141 TODO -->
-    <string name="error_incorrect_login_pass">Błędny login lub hasło.</string>
-    <string name="error_login_error">Błąd logowania</string>
-    <string name="error_bad_credentials_long_p1">Błędny login lub hasło.
-        Proszę podać poprawne dane logowania (login i hasło) i spróbować ponownie albo
-    </string>
-
-    <string name="error_bad_credentials_long_p2">*zarejestrować się*</string>
-    <string name="error_bad_credentials_long_p3">(jeśli nie masz konta), a następnie</string>
-    <string name="error_bad_credentials_long_p4">*aktywować*</string>
-    <string name="error_bad_credentials_long_p5">utworzone konto.</string>
-
-    <!-- HttpService:252 TODO -->
-    <string name="error_not_authorized">Błąd autoryzacji.</string>
-
-    <!-- HttpService:143, 446 TODO -->
-    <string name="error_api_error">Błąd API</string>
-    <string name="error_api_error_desc">Błąd API. Proszę sprawdzić połączenie i ustawienia.</string>
-
-    <!-- HttpService:276, 300 TODO -->
-    <string name="error_connection_failed">Błąd połączenia.</string>
-
-    <!-- HttpService:205 TODO -->
-    <string name="error_could_not_confirm_registration_s">Nie udało się potwierdzić rejestracji konta %1$s.</string>
-
-    <!-- HttpService:436 TODO -->
-    <string name="error_account_exists_s">Konto o adresie email %1$s już istnieje.</string>
-
-    <!-- HttpService:440 TODO -->
-    <string name="error_email_invalid_s">Email %1$s jest błędny.</string>
-    <string name="error_unknown_error">Wystąpił nieznany błąd API, proszę skontaktować się z administratorem.</string>
-    <string name="error_profile_updating_error">BŁĄD AKTUALIZACJI PROFILU</string>
-
+    <string name="error_unknown_error">Wystąpił nieznany błąd.</string>
 
     <!-- crypto center -->
     <string name="encrypt">Zaszyfruj</string>
-
     <string name="decrypt">Odszyfruj</string>
 
     <string name="language">
@@ -205,4 +158,25 @@
         Sobo Crypto Center - Szyfrowanie
     </string>
 
+    <!-- Diffie-Hellman's  -->
+    <string name="their_public_key_hex">Klucz publiczny drugiej strony</string>
+    <string name="their_public_key_hex_required">Klucz publiczny drugiej strony jest wymagany</string>
+
+    <string name="our_public_key_hex">Nasz klucz publiczny </string>
+    <string name="our_public_key_hex_required">Nasz klucz publiczny jest wymagany</string>
+
+    <string name="our_secret_key_hex">Nasz klucz prywatny </string>
+    <string name="our_secret_key_hex_required">Nasz klucz prywatny jest wymagany</string>
+
+    <string name="generate_key_pair">Wygeneruj parę kluczy</string>
+
+    <string name="paste_our_secret_key">Wklej nasz klucz prywatny</string>
+    <string name="paste_our_public_key">Wklej nasz klucz publiczny</string>
+
+    <string name="encrypt_dh">Szyfruj (Diffie-Hellman's)</string>
+    <string name="decrypt_dh">Deszyfruj (Diffie-Hellman's)</string>
+    <string name="dh_ops">Diffie-Hellman's</string>
+
+    <string name="cryptocenter_encryption_dh">Szyfrowanie (Diffie-Hellman's)</string>
+    <string name="cryptocenter_decryption_dh">Deszyfrowanie (Diffie-Hellman's)</string>
 </resources>

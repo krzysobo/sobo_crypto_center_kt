@@ -1,206 +1,182 @@
 <resources>
     <string name="app_name">Sobo Crypto Center</string>
-    <string name="welcome_s">Welcome %1$s</string>
-    <string name="welcome">Welcome page</string>
+    <string name="welcome_s">Bienvenue %1$s</string>
+    <string name="welcome">Page d'accueil</string>
 
-    <string name="welcome_story_sobo_crypto_center">Welcome to Sobo Crypto Center - an application for easy
-        encryption and decryption of text using AES-GCM (symmetric) and (TODO) Diffie-Hellman's (hybrid) algorithms.
+    <string name="welcome_story_sobo_crypto_center">
+        Bienvenue sur Sobo Crypto Center, une application facilitant le chiffrement et le déchiffrement de texte à l'aide des algorithmes AES-GCM (symétrique) et Diffie-Hellman (hybride).
     </string>
 
-    <string name="app_name_sobo_crypto_center_desktop">Sobo Crypto Center Desktop App</string>
-
+    <string name="app_name_sobo_crypto_center_desktop">Sobo Crypto Center</string>
     <string name="app_name_android">Sobo Crypto Center</string>
 
-    <string name="home">Home</string>
+    <string name="home">Accueil</string>
+    <string name="go_back">Retour</string>
+    <string name="dashboard">Tableau de bord</string>
 
-    <string name="go_back">Go back</string>
-
-    <string name="dashboard">Dashboard</string>
-    <string name="dashboard_long_s">%1$s Dashboard - user's own homepage</string>
-
-    <string name="update_settings">Update Settings</string>
-    <string name="settings_updated_ok">Settings Updated OK</string>
-    <string name="settings_updated_ok_desc">Your settings have been successfully updated.</string>
-    <string name="settings_updating_error">Settings Updating Error</string>
+    <string name="update_settings">Mettre à jour les paramètres</string>
+    <string name="settings_updated_ok">Paramètres mis à jour correctement</string>
+    <string name="settings_updated_ok_desc">Vos paramètres ont été mis à jour avec succès.</string>
+    <string name="settings_updating_error">Erreur de mise à jour des paramètres</string>
 
     <string name="actions">Actions</string>
 
-    <string name="s_about">%1$s - About</string>
-    <string name="s_help">%1$s - Help</string>
-    <string name="s_settings">%1$s - Settings</string>
+    <string name="s_about">%1$s - À propos</string>
+    <string name="s_help">%1$s - Aide</string>
+    <string name="s_settings">%1$s - Paramètres</string>
 
-    <string name="about">About</string>
-    <string name="about_s">About %1$s</string>
-    <string name="help">Help</string>
-    <string name="help_s">%1$s Help</string>
-    <string name="more_at_url_s">More at: %1$s</string>
+    <string name="about">À propos</string>
+    <string name="about_s">À propos de %1$s</string>
+    <string name="help">Aide</string>
+    <string name="help_s">Aide de %1$s</string>
+    <string name="more_at_url_s">Plus d'informations sur : %1$s</string>
 
-    <string name="settings">Settings</string>
-    <string name="list">List</string>
-    <string name="edit">Edit</string>
-    <string name="delete">Delete</string>
+    <string name="settings">Paramètres</string>
+    <string name="list">Liste</string>
+    <string name="edit">Modifier</string>
+    <string name="delete">Supprimer</string>
 
-    <string name="open_menu">Open Menu</string>
-    <string name="close_menu">Close Menu</string>
-    <string name="contact_info">Contact Info</string>
-    <string name="color_scheme">Color scheme: %1$s</string>
-    <string name="color_scheme_dark">Color scheme: DARK</string>
-    <string name="color_scheme_light">Color scheme: LIGHT</string>
-    <string name="dark">DARK</string>
-    <string name="light">LIGHT</string>
-    <string name="total_items_n">Total items: %1$d</string>
-    <string name="page_size">Page size: </string>
-    <string name="back">BACK</string>
-    <string name="forward">FORWARD</string>
-    <string name="yes">YES</string>
-    <string name="no">NO</string>
+    <string name="open_menu">Ouvrir le menu</string>
+    <string name="close_menu">Fermer le menu</string>
+    <string name="contact_info">Coordonnées</string>
+    <string name="color_scheme">Couleur schéma : %1$s</string>
+    <string name="color_scheme_dark">Schéma de couleurs : FONCÉ</string>
+    <string name="color_scheme_light">Schéma de couleurs : CLAIR</string>
+    <string name="dark">FONCÉ</string>
+    <string name="light">CLAIR</string>
+    <string name="total_items_n">Nombre total d'éléments : %1$d</string>
+    <string name="page_size">Taille de la page : </string>
+    <string name="back">RETOUR</string>
+    <string name="forward">SUIVANT</string>
+    <string name="yes">OUI</string>
+    <string name="no">NON</string>
     <string name="ok">OK</string>
-    <string name="cancel">CANCEL</string>
+    <string name="cancel">ANNULER</string>
 
-    <string name="email">Email</string>
-
+    <string name="email">E-mail</string>
 
     <!-- errors -->
-    <string name="error_occurred">Error has occurred!</string>
-
-    <!-- HttpService:100 TODO -->
-    <string name="error_network_unavailable">Network is unavailable - check your connection.</string>
-    <string name="error_network_error">Network error</string>
-    <string name="error_network_error_desc">Network error has occurred. Please check your network connection and try again.</string>
-    <string name="error_network_error_s">Network error. Please check your network connection or contact your site administrator. Message: %1$s</string>
-
-    <!-- HttpService:107 TODO -->
-    <string name="error_no_api_server_found_s">no API server found at %1$s - check your network connection and client configuration.</string>
-
-    <!-- HttpService:141 TODO -->
-    <string name="error_incorrect_login_pass">Incorrect login or password.</string>
-    <string name="error_login_error">Login Error</string>
-    <string name="error_bad_credentials_long_p1">Bad credentials (login or password).
-        Please provide your valid credentials and try again, or
-    </string>
-
-    <string name="error_bad_credentials_long_p2">*register*</string>
-    <string name="error_bad_credentials_long_p3">if you don't have an account here, and then</string>
-    <string name="error_bad_credentials_long_p4">*activate*</string>
-    <string name="error_bad_credentials_long_p5">your newly created account.</string>
-
-    <!-- HttpService:252 TODO -->
-    <string name="error_not_authorized">Not authorized.</string>
-
-    <!-- HttpService:143, 446 TODO -->
-    <string name="error_api_error">API Error</string>
-    <string name="error_api_error_desc">API Error. Please check your network connection and settings.</string>
-
-    <!-- HttpService:276, 300 TODO -->
-    <string name="error_connection_failed">Connection failed.</string>
-
-    <!-- HttpService:205 TODO -->
-    <string name="error_could_not_confirm_registration_s">Could not confirm registration of %1$s.</string>
-
-    <!-- HttpService:436 TODO -->
-    <string name="error_account_exists_s">An account with email %1$s already exists.</string>
-
-    <!-- HttpService:440 TODO -->
-    <string name="error_email_invalid_s">Email %1$s is invalid.</string>
-    <string name="error_unknown_error">An unknown API error occurred, please contact your site administrator.</string>
-    <string name="error_profile_updating_error">PROFILE UPDATING ERROR</string>
-
+    <string name="error_occurred">Une erreur s'est produite !</string>
+    <string name="error_unknown_error">Une erreur inconnue s'est produite.</string>
 
     <!-- crypto center -->
-    <string name="encrypt">Encrypt</string>
-    <string name="decrypt">Decrypt</string>
+    <string name="encrypt">Crypter</string>
+    <string name="decrypt">Décrypter</string>
 
     <string name="language">
-        Language
+        Langue
     </string>
 
     <string name="use_device_language">
-        Use system (device) language?
+        Utiliser la langue du système (de l'appareil) ?
     </string>
 
     <string name="plaintext">
-        Plaintext
+        Texte en clair
     </string>
 
     <string name="plaintext_required">
-        Plaintext is required
+        Texte en clair requis.
     </string>
 
     <string name="secret_key_hex">
-        Secret key
+        Clé secrète
     </string>
 
     <string name="secret_key_hex_required">
-        Secret key is required: either pasted (hex), generated or password-derived
+        Clé secrète requise : collée (hex), générée ou dérivée du mot de passe.
     </string>
 
     <string name="cipher_text_hex">
-        Ciphertext (hex)
+        Texte chiffré (hex)
     </string>
 
     <string name="encryption_error_header">
-        ENCRYPTION ERROR
+        ERREUR DE CHIFFREMENT
     </string>
 
     <string name="decryption_error_header">
-        DECRYPTION ERROR
+        ERREUR DE DÉCHIFFREMENT
     </string>
 
     <string name="copy_result_ciphertext">
-        Copy resulting ciphertext
+        Copier le texte chiffré obtenu.
     </string>
 
     <string name="copy_result_plaintext">
-        Copy resulting plaintext
+        Copier le résultat. Texte brut
     </string>
 
-
     <string name="get_secret_key">
-        GET SECRET KEY:
+        OBTENIR LA CLÉ SECRÈTE :
     </string>
 
     <string name="generate_random">
-        Generate random
+        Générer aléatoire
     </string>
 
     <string name="from_password">
-        From Password
+        À partir du mot de passe
     </string>
 
     <string name="paste">
-        Paste
+        Coller
     </string>
 
     <string name="paste_plaintext">
-        Paste plaintext from clipboard
+        Coller le texte brut depuis le presse-papiers
     </string>
 
     <string name="paste_ciphertext">
-        Paste ciphertext hex from clipboard
+        Coller le texte chiffré hexadécimal depuis le presse-papiers
     </string>
 
     <string name="copy">
-        Copy
+        Copier
     </string>
 
     <string name="clear_all">
-        Clear all
+        Tout effacer
     </string>
 
     <string name="copy_hex_key">
-        Copy hex key
+        Copier la clé hexadécimale
     </string>
 
     <string name="paste_hex_key">
-        Paste hex key from clipboard
+        Coller la clé hexadécimale depuis le presse-papiers
     </string>
 
     <string name="cryptocenter_decryption">
-        Sobo Crypto Center - Decryption
+        Sobo Crypto Center - Décryptage
     </string>
 
     <string name="cryptocenter_encryption">
-        Sobo Crypto Center - Encryption
+        Sobo Crypto Center - Chiffrement
     </string>
+
+    <!-- Diffie-Hellman's -->
+    <string name="their_public_key_hex">Leur clé publique</string>
+    <string name="their_public_key_hex_required">Leur clé publique est requise</string>
+
+    <string name="our_public_key_hex">Notre clé publique</string>
+    <string name="our_public_key_hex_required">Notre clé publique est requise</string>
+
+    <string name="our_secret_key_hex">Notre clé privée</string>
+    <string name="our_secret_key_hex_required">Notre clé privée est requise</string>
+
+    <string name="generate_key_pair">Générer une paire de clés</string>
+
+    <string name="paste_our_secret_key">Coller notre clé privée</string>
+    <string name="paste_our_public_key">Coller notre clé publique</string>
+
+    <string name="encrypt_dh">Crypter (Diffie-Hellman's)</string>
+    <string name="decrypt_dh">Décrypter (Diffie-Hellman's)</string>
+    <string name="dh_ops">Diffie-Hellman's</string>
+
+    <string name="cryptocenter_encryption_dh">Cryptage (Diffie-Hellman)</string>
+    <string name="cryptocenter_decryption_dh">Décryptage (Diffie-Hellman)</string>
+
+
 
 </resources>

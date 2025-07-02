@@ -55,7 +55,7 @@ fun KeySourceButtonsForDecrypt() {
 ////                println("Button 3 - from password")
 //                vm.openSecretKeyHexSrcPassWidget()
 //            }) {
-//            Text(anyResText(AnyRes(Res.string.from_password)))
+//            Text(anyResText(AnyRes(AppRes.string.from_password)))
 //        }
     }
 }

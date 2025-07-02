@@ -1,5 +1,6 @@
 package com.krzysobo.cryptocenter.settings
 
+import com.krzysobo.cryptocenter.appres.AppRes
 import sobocryptocenter.composeapp.generated.resources.Res
 import sobocryptocenter.composeapp.generated.resources.about
 import sobocryptocenter.composeapp.generated.resources.decrypt
@@ -17,6 +18,7 @@ import com.krzysobo.cryptocenter.view.PageSoboCryptoCenterSettings
 import com.krzysobo.cryptocenter.view.PageWelcomeSoboCryptoCenter
 import com.krzysobo.cryptocenter.view.dh.PageSoboCryptoCenterDecryptDh
 import com.krzysobo.cryptocenter.view.dh.PageSoboCryptoCenterEncryptDh
+import com.krzysobo.soboapptpl.pubres.PubRes
 import sobocryptocenter.composeapp.generated.resources.decrypt_dh
 import sobocryptocenter.composeapp.generated.resources.dh_ops
 import sobocryptocenter.composeapp.generated.resources.encrypt_dh
@@ -45,45 +47,45 @@ val soboCryptoCenterRouteHandlesForDesktopMenu = listOf(
 val soboCryptoCenterRoutes = listOf(
     SoboRoute(
         SCC_ROUTE_HANDLE.WELCOME.value,
-        AnyRes(Res.string.welcome),
+        AnyRes(PubRes.string.welcome),
         { PageWelcomeSoboCryptoCenter() },
         perms = listOf()
     ),
     SoboRoute(
         SCC_ROUTE_HANDLE.ENCRYPT.value,
-        AnyRes(Res.string.encrypt),
+        AnyRes(AppRes.string.encrypt),
         { PageSoboCryptoCenterEncrypt() }
     ),
     SoboRoute(
         SCC_ROUTE_HANDLE.DECRYPT.value,
-        AnyRes(Res.string.decrypt),
+        AnyRes(AppRes.string.decrypt),
         { PageSoboCryptoCenterDecrypt() }
     ),
 
     SoboRoute(
         SCC_ROUTE_HANDLE.ENCRYPT_DH.value,
-        AnyRes(Res.string.dh_ops),
+        AnyRes(AppRes.string.dh_ops),
         { PageSoboCryptoCenterEncryptDh() }
     ),
     SoboRoute(
         SCC_ROUTE_HANDLE.DECRYPT_DH.value,
-        AnyRes(Res.string.decrypt_dh),
+        AnyRes(AppRes.string.decrypt_dh),
         { PageSoboCryptoCenterDecryptDh() }
     ),
 
     SoboRoute(
         SCC_ROUTE_HANDLE.SETTINGS.value,
-        AnyRes(Res.string.settings),
+        AnyRes(PubRes.string.settings),
         { PageSoboCryptoCenterSettings() }
     ),
     SoboRoute(
         SCC_ROUTE_HANDLE.ABOUT.value,
-        AnyRes(Res.string.about),
+        AnyRes(PubRes.string.about),
         { PageAboutSoboCryptoCenter() },
     ),
     SoboRoute(
         SCC_ROUTE_HANDLE.HELP.value,
-        AnyRes(Res.string.help),
+        AnyRes(PubRes.string.help),
         { PageHelpSoboCryptoCenter() },
     ),
 

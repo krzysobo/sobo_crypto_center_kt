@@ -5,6 +5,7 @@ import com.krzysobo.cryptocenter.generated.SoboRes
 
 object AppRes {
     object string {
+        val dh_ops = SoboRes.string.dh_ops
         val about_s = SoboRes.string.about_s
         val app_name_sobo_crypto_center_desktop =
             SoboRes.string.app_name_sobo_crypto_center_desktop

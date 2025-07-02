@@ -12,7 +12,7 @@ plugins {
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.serialization)
 //    id("hello-world-class")
-    id("build-acme-resources")
+    id("build-sobo-resources")
 }
 
 

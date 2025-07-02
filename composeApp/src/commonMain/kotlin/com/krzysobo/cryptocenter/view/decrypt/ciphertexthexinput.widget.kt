@@ -13,14 +13,12 @@ import androidx.compose.ui.platform.ClipboardManager
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
-import sobocryptocenter.composeapp.generated.resources.Res
-import sobocryptocenter.composeapp.generated.resources.cipher_text_hex
-import sobocryptocenter.composeapp.generated.resources.paste_ciphertext
+import com.krzysobo.cryptocenter.appres.AppRes
+import com.krzysobo.cryptocenter.viewmodel.DecryptPageVM
+import com.krzysobo.cryptocenter.viewmodel.getDecryptPageVM
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.anyResText
 import com.krzysobo.soboapptpl.widgets.TextFieldWithErrorsKeyboardSettings
-import com.krzysobo.cryptocenter.viewmodel.DecryptPageVM
-import com.krzysobo.cryptocenter.viewmodel.getDecryptPageVM
 
 @Composable
 fun CiphertextHexInputWidget() {
@@ -36,11 +34,11 @@ fun CiphertextHexInputWidget() {
                 vm.clearCiphertextHexError()
             },
             modifier = Modifier.padding(all = 10.dp).weight(0.9f),
-            labelText = anyResText(AnyRes(Res.string.cipher_text_hex)),
-            placeHolderText = anyResText(AnyRes(Res.string.cipher_text_hex)),
+            labelText = anyResText(AnyRes(AppRes.string.cipher_text_hex)),
+            placeHolderText = anyResText(AnyRes(AppRes.string.cipher_text_hex)),
             leadingIcon = null,
             isError = vm.isErrorCiphertextHex.value,
-            errorText = anyResText(AnyRes(Res.string.cipher_text_hex)),
+            errorText = anyResText(AnyRes(AppRes.string.cipher_text_hex)),
             focusManager = focusManager,
             singleLine = false,
             minLines = 5,
@@ -55,7 +53,7 @@ fun CiphertextHexInputWidget() {
         ) {
             Icon(
                 Icons.Default.ContentPaste,
-                contentDescription = anyResText(AnyRes(Res.string.paste_ciphertext)),
+                contentDescription = anyResText(AnyRes(AppRes.string.paste_ciphertext)),
             )
         }
     }

@@ -8,7 +8,6 @@ import androidx.compose.material.IconButton
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.ContentPaste
-import androidx.compose.material.icons.filled.Create
 import androidx.compose.material.icons.filled.Key
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -16,17 +15,12 @@ import androidx.compose.ui.platform.ClipboardManager
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
-import sobocryptocenter.composeapp.generated.resources.Res
-import sobocryptocenter.composeapp.generated.resources.copy_hex_key
-import sobocryptocenter.composeapp.generated.resources.generate_random
-import sobocryptocenter.composeapp.generated.resources.paste_hex_key
-import sobocryptocenter.composeapp.generated.resources.secret_key_hex
-import sobocryptocenter.composeapp.generated.resources.secret_key_hex_required
+import com.krzysobo.cryptocenter.appres.AppRes
+import com.krzysobo.cryptocenter.viewmodel.EncryptPageVM
+import com.krzysobo.cryptocenter.viewmodel.getEncryptPageVM
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.anyResText
 import com.krzysobo.soboapptpl.widgets.PasswordWidget
-import com.krzysobo.cryptocenter.viewmodel.EncryptPageVM
-import com.krzysobo.cryptocenter.viewmodel.getEncryptPageVM
 
 @Composable
 fun SecretKeyHexWidget() {
@@ -48,9 +42,9 @@ fun SecretKeyHexWidget() {
             },
             isError = vm.isErrorSecretKeyHex.value,
             focusManager = focusManager,
-            labelText = anyResText(AnyRes(Res.string.secret_key_hex)),
-            placeHolderText = anyResText(AnyRes(Res.string.secret_key_hex)),
-            errorText = anyResText(AnyRes(Res.string.secret_key_hex_required)),
+            labelText = anyResText(AnyRes(AppRes.string.secret_key_hex)),
+            placeHolderText = anyResText(AnyRes(AppRes.string.secret_key_hex)),
+            errorText = anyResText(AnyRes(AppRes.string.secret_key_hex_required)),
             trailingIconPassOnClick = { vm.toggleSecretKeyHexVisible() },
             isPassVisible = vm.isSecretKeyHexVisible.value,
             isReadOnly = true,
@@ -66,7 +60,7 @@ fun SecretKeyHexWidget() {
         ) {
             Icon(
                 Icons.Default.ContentCopy,
-                contentDescription = anyResText(AnyRes(Res.string.copy_hex_key)),
+                contentDescription = anyResText(AnyRes(AppRes.string.copy_hex_key)),
             )
         }
 
@@ -77,7 +71,7 @@ fun SecretKeyHexWidget() {
         ) {
             Icon(
                 Icons.Default.ContentPaste,
-                contentDescription = anyResText(AnyRes(Res.string.paste_hex_key)),
+                contentDescription = anyResText(AnyRes(AppRes.string.paste_hex_key)),
             )
         }
 
@@ -88,7 +82,7 @@ fun SecretKeyHexWidget() {
         ) {
             Icon(
                 Icons.Default.Key,
-                contentDescription = anyResText(AnyRes(Res.string.generate_random)),
+                contentDescription = anyResText(AnyRes(AppRes.string.generate_random)),
             )
         }
 

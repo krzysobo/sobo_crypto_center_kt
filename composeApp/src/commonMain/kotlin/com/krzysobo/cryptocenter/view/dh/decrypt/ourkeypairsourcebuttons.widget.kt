@@ -14,14 +14,11 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.krzysobo.cryptocenter.appres.AppRes
 import com.krzysobo.cryptocenter.viewmodel.dh.DecryptDhPageVM
 import com.krzysobo.cryptocenter.viewmodel.getDecryptDhPageVM
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.anyResText
-import sobocryptocenter.composeapp.generated.resources.Res
-import sobocryptocenter.composeapp.generated.resources.get_secret_key
-import sobocryptocenter.composeapp.generated.resources.paste_our_public_key
-import sobocryptocenter.composeapp.generated.resources.paste_our_secret_key
 
 @Composable
 fun OurKeyPairSourceButtonsWidgetForDecrypt() {
@@ -34,7 +31,7 @@ fun OurKeyPairSourceButtonsWidgetForDecrypt() {
                 .weight(0.33f)
                 .align(Alignment.CenterVertically)
                 .padding(end = 15.dp),
-            text = anyResText(AnyRes(Res.string.get_secret_key)),
+            text = anyResText(AnyRes(AppRes.string.get_secret_key)),
             style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 18.sp)
         )
 
@@ -45,7 +42,7 @@ fun OurKeyPairSourceButtonsWidgetForDecrypt() {
             onClick = {
                 vm.doPasteSecretKeyHexFromClipboard(clipboardManager)
             }) {
-            Text(anyResText(AnyRes(Res.string.paste_our_secret_key)))
+            Text(anyResText(AnyRes(AppRes.string.paste_our_secret_key)))
         }
         Button(
             modifier = Modifier
@@ -55,7 +52,7 @@ fun OurKeyPairSourceButtonsWidgetForDecrypt() {
 //                println("Button 2 - paste")
                 vm.doPasteOurPublicKeyHexFromClipboard(clipboardManager)
             }) {
-            Text(anyResText(AnyRes(Res.string.paste_our_public_key)))
+            Text(anyResText(AnyRes(AppRes.string.paste_our_public_key)))
         }
     }
 }

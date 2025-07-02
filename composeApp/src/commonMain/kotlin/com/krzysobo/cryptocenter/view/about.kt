@@ -7,10 +7,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import sobocryptocenter.composeapp.generated.resources.Res
-import sobocryptocenter.composeapp.generated.resources.about_s
-import sobocryptocenter.composeapp.generated.resources.more_at_url_s
 import com.krzysobo.cryptocenter.appVersion
+import com.krzysobo.cryptocenter.appres.AppRes
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.anyResText
 import com.krzysobo.soboapptpl.widgets.PageHeader
@@ -24,7 +22,7 @@ fun PageAboutSoboCryptoCenter() {
             .padding(all = 32.dp)
     ) {
         item {
-            PageHeader(anyResText(AnyRes(Res.string.about_s, arrayOf("Sobo Crypto Center"))))
+            PageHeader(anyResText(AnyRes(AppRes.string.about_s, arrayOf("Sobo Crypto Center"))))
         }
 
         item {
@@ -43,7 +41,7 @@ fun PageAboutSoboCryptoCenter() {
             Text(
                 anyResText(
                     AnyRes(
-                        Res.string.more_at_url_s,
+                        AppRes.string.more_at_url_s,
                         arrayOf("https://github.com/krzysobo/sobo_crypto_center_app/blob/main/README.md")
                     )
                 )

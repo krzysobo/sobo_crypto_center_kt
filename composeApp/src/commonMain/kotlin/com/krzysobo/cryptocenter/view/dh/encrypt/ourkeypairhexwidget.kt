@@ -15,20 +15,12 @@ import androidx.compose.ui.platform.ClipboardManager
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
+import com.krzysobo.cryptocenter.appres.AppRes
 import com.krzysobo.cryptocenter.viewmodel.dh.EncryptDhPageVM
 import com.krzysobo.cryptocenter.viewmodel.getEncryptDhPageVM
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.anyResText
 import com.krzysobo.soboapptpl.widgets.PasswordWidget
-import sobocryptocenter.composeapp.generated.resources.Res
-import sobocryptocenter.composeapp.generated.resources.copy_hex_key
-import sobocryptocenter.composeapp.generated.resources.generate_key_pair
-import sobocryptocenter.composeapp.generated.resources.generate_random
-import sobocryptocenter.composeapp.generated.resources.our_public_key_hex
-import sobocryptocenter.composeapp.generated.resources.our_public_key_hex_required
-import sobocryptocenter.composeapp.generated.resources.our_secret_key_hex
-import sobocryptocenter.composeapp.generated.resources.our_secret_key_hex_required
-import sobocryptocenter.composeapp.generated.resources.paste_hex_key
 
 @Composable
 fun OurKeyPairHexWidget() {
@@ -51,9 +43,9 @@ fun OurKeyPairHexWidget() {
             },
             isError = vm.isErrorOurPublicKeyHex.value,
             focusManager = focusManager,
-            labelText = anyResText(AnyRes(Res.string.our_public_key_hex)),
-            placeHolderText = anyResText(AnyRes(Res.string.our_public_key_hex)),
-            errorText = anyResText(AnyRes(Res.string.our_public_key_hex_required)),
+            labelText = anyResText(AnyRes(AppRes.string.our_public_key_hex)),
+            placeHolderText = anyResText(AnyRes(AppRes.string.our_public_key_hex)),
+            errorText = anyResText(AnyRes(AppRes.string.our_public_key_hex_required)),
             trailingIconPassOnClick = { vm.toggleOurPublicKeyHexVisible() },
             isPassVisible = vm.isOurPublicKeyHexVisible.value,
             isReadOnly = true,
@@ -68,7 +60,7 @@ fun OurKeyPairHexWidget() {
         ) {
             Icon(
                 Icons.Default.ContentCopy,
-                contentDescription = anyResText(AnyRes(Res.string.copy_hex_key)),
+                contentDescription = anyResText(AnyRes(AppRes.string.copy_hex_key)),
             )
         }
 
@@ -79,7 +71,7 @@ fun OurKeyPairHexWidget() {
         ) {
             Icon(
                 Icons.Default.ContentPaste,
-                contentDescription = anyResText(AnyRes(Res.string.paste_hex_key)),
+                contentDescription = anyResText(AnyRes(AppRes.string.paste_hex_key)),
             )
         }
     }
@@ -99,9 +91,9 @@ fun OurKeyPairHexWidget() {
             },
             isError = vm.isErrorSecretKeyHex.value,
             focusManager = focusManager,
-            labelText = anyResText(AnyRes(Res.string.our_secret_key_hex)),
-            placeHolderText = anyResText(AnyRes(Res.string.our_secret_key_hex)),
-            errorText = anyResText(AnyRes(Res.string.our_secret_key_hex_required)),
+            labelText = anyResText(AnyRes(AppRes.string.our_secret_key_hex)),
+            placeHolderText = anyResText(AnyRes(AppRes.string.our_secret_key_hex)),
+            errorText = anyResText(AnyRes(AppRes.string.our_secret_key_hex_required)),
             trailingIconPassOnClick = { vm.toggleSecretKeyHexVisible() },
             isPassVisible = vm.isSecretKeyHexVisible.value,
             isReadOnly = true,
@@ -115,7 +107,7 @@ fun OurKeyPairHexWidget() {
         ) {
             Icon(
                 Icons.Default.Key,
-                contentDescription = anyResText(AnyRes(Res.string.generate_key_pair)),
+                contentDescription = anyResText(AnyRes(AppRes.string.generate_key_pair)),
             )
         }
 
@@ -127,7 +119,7 @@ fun OurKeyPairHexWidget() {
         ) {
             Icon(
                 Icons.Default.ContentCopy,
-                contentDescription = anyResText(AnyRes(Res.string.copy_hex_key)),
+                contentDescription = anyResText(AnyRes(AppRes.string.copy_hex_key)),
             )
         }
 
@@ -138,7 +130,7 @@ fun OurKeyPairHexWidget() {
         ) {
             Icon(
                 Icons.Default.ContentPaste,
-                contentDescription = anyResText(AnyRes(Res.string.paste_hex_key)),
+                contentDescription = anyResText(AnyRes(AppRes.string.paste_hex_key)),
             )
         }
     }

@@ -13,14 +13,12 @@ import androidx.compose.ui.platform.ClipboardManager
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
+import com.krzysobo.cryptocenter.appres.AppRes
 import com.krzysobo.cryptocenter.viewmodel.dh.DecryptDhPageVM
 import com.krzysobo.cryptocenter.viewmodel.getDecryptDhPageVM
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.anyResText
 import com.krzysobo.soboapptpl.widgets.TextFieldWithErrorsKeyboardSettings
-import sobocryptocenter.composeapp.generated.resources.Res
-import sobocryptocenter.composeapp.generated.resources.copy
-import sobocryptocenter.composeapp.generated.resources.plaintext
 
 @Composable
 fun DhPlainTextOutputWidget() {
@@ -37,8 +35,8 @@ fun DhPlainTextOutputWidget() {
 //
 //            },
             modifier = Modifier.padding(all = 10.dp).weight(0.9f),
-            labelText = anyResText(AnyRes(Res.string.plaintext)),
-            placeHolderText = anyResText(AnyRes(Res.string.plaintext)),
+            labelText = anyResText(AnyRes(AppRes.string.plaintext)),
+            placeHolderText = anyResText(AnyRes(AppRes.string.plaintext)),
             leadingIcon = null,
             readOnly = true,
             isError = false,
@@ -56,7 +54,7 @@ fun DhPlainTextOutputWidget() {
         ) {
             Icon(
                 Icons.Default.ContentCopy,
-                contentDescription = anyResText(AnyRes(Res.string.copy)),
+                contentDescription = anyResText(AnyRes(AppRes.string.copy)),
             )
         }
     }

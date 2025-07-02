@@ -13,14 +13,12 @@ import androidx.compose.ui.platform.ClipboardManager
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
-import sobocryptocenter.composeapp.generated.resources.Res
-import sobocryptocenter.composeapp.generated.resources.copy_result_plaintext
-import sobocryptocenter.composeapp.generated.resources.plaintext
+import com.krzysobo.cryptocenter.appres.AppRes
+import com.krzysobo.cryptocenter.viewmodel.DecryptPageVM
+import com.krzysobo.cryptocenter.viewmodel.getDecryptPageVM
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.anyResText
 import com.krzysobo.soboapptpl.widgets.TextFieldWithErrorsKeyboardSettings
-import com.krzysobo.cryptocenter.viewmodel.DecryptPageVM
-import com.krzysobo.cryptocenter.viewmodel.getDecryptPageVM
 
 @Composable
 fun PlaintextOutputWidget() {
@@ -34,7 +32,7 @@ fun PlaintextOutputWidget() {
             onValueChanges = { },
             readOnly = true,
             modifier = Modifier.padding(all = 10.dp).weight(0.9f),
-            labelText = anyResText(AnyRes(Res.string.plaintext)),
+            labelText = anyResText(AnyRes(AppRes.string.plaintext)),
             placeHolderText = "",
             leadingIcon = null,
             isError = false,
@@ -53,7 +51,7 @@ fun PlaintextOutputWidget() {
         ) {
             Icon(
                 Icons.Default.ContentCopy,
-                contentDescription = anyResText(AnyRes(Res.string.copy_result_plaintext)),
+                contentDescription = anyResText(AnyRes(AppRes.string.copy_result_plaintext)),
             )
         }
     }

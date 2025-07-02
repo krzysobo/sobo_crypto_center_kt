@@ -14,19 +14,11 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import sobocryptocenter.composeapp.generated.resources.Res
-import sobocryptocenter.composeapp.generated.resources.generate_random
-import sobocryptocenter.composeapp.generated.resources.get_secret_key
-import sobocryptocenter.composeapp.generated.resources.paste
-import com.krzysobo.soboapptpl.service.AnyRes
-import com.krzysobo.soboapptpl.service.anyResText
-import com.krzysobo.cryptocenter.viewmodel.EncryptPageVM
+import com.krzysobo.cryptocenter.appres.AppRes
 import com.krzysobo.cryptocenter.viewmodel.dh.EncryptDhPageVM
 import com.krzysobo.cryptocenter.viewmodel.getEncryptDhPageVM
-import com.krzysobo.cryptocenter.viewmodel.getEncryptPageVM
-import sobocryptocenter.composeapp.generated.resources.generate_key_pair
-import sobocryptocenter.composeapp.generated.resources.paste_our_public_key
-import sobocryptocenter.composeapp.generated.resources.paste_our_secret_key
+import com.krzysobo.soboapptpl.service.AnyRes
+import com.krzysobo.soboapptpl.service.anyResText
 
 @Composable
 fun OurKeyPairSourceButtonsWidget() {
@@ -39,7 +31,7 @@ fun OurKeyPairSourceButtonsWidget() {
                 .weight(0.33f)
                 .align(Alignment.CenterVertically)
                 .padding(end = 15.dp),
-            text = anyResText(AnyRes(Res.string.get_secret_key)),
+            text = anyResText(AnyRes(AppRes.string.get_secret_key)),
             style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 18.sp)
         )
         Button(
@@ -49,7 +41,7 @@ fun OurKeyPairSourceButtonsWidget() {
             onClick = {
                 vm.doGenerateDhKeyPair()
             }) {
-            Text(anyResText(AnyRes(Res.string.generate_key_pair)))
+            Text(anyResText(AnyRes(AppRes.string.generate_key_pair)))
         }
         Button(
             modifier = Modifier
@@ -58,7 +50,7 @@ fun OurKeyPairSourceButtonsWidget() {
             onClick = {
                 vm.doPasteSecretKeyHexFromClipboard(clipboardManager)
             }) {
-            Text(anyResText(AnyRes(Res.string.paste_our_secret_key)))
+            Text(anyResText(AnyRes(AppRes.string.paste_our_secret_key)))
         }
         Button(
             modifier = Modifier
@@ -68,7 +60,7 @@ fun OurKeyPairSourceButtonsWidget() {
 //                println("Button 2 - paste")
                 vm.doPasteOurPublicKeyHexFromClipboard(clipboardManager)
             }) {
-            Text(anyResText(AnyRes(Res.string.paste_our_public_key)))
+            Text(anyResText(AnyRes(AppRes.string.paste_our_public_key)))
         }
     }
 }

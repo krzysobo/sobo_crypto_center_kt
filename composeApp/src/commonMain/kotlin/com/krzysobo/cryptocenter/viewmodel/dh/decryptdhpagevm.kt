@@ -4,11 +4,13 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.platform.ClipboardManager
 import androidx.compose.ui.text.buildAnnotatedString
+import com.krzysobo.cryptocenter.generated.SoboRes
+import com.krzysobo.soboapptpl.service.SoboStringResource
 import com.krzysobo.soboapptpl.viewmodel.SoboViewModel
 import com.krzysobo.soboapptpl.widgets.strNotEmpty
 import com.krzysobo.soboapptpl.widgets.validateWithLambda
 import com.krzysobo.sobocryptolib.crypto.service.CryptoService
-import com.krzysobo.sobocryptolib.crypto.service.X25519KeyPairBytes
+
 
 class DecryptDhPageVM : SoboViewModel() {
     var plaintext: MutableState<String> = mutableStateOf("")
@@ -38,7 +40,6 @@ class DecryptDhPageVM : SoboViewModel() {
     var isErrorSecretKeyHex: MutableState<Boolean> = mutableStateOf(false)
     var isErrorOurPublicKeyHex: MutableState<Boolean> = mutableStateOf(false)
     var isErrorTheirPublicKeyHex: MutableState<Boolean> = mutableStateOf(false)
-
 
 
     fun doClearAll() {
@@ -156,7 +157,8 @@ class DecryptDhPageVM : SoboViewModel() {
 
             val sharedSecret = CryptoService().makeDhSharedSecretFromHex(
                 ourPrivateKeyHex = secretKeyHex.value,
-                theirPublicKeyHex = theirPublicKeyHex.value)
+                theirPublicKeyHex = theirPublicKeyHex.value
+            )
 
             val aesKey = CryptoService().deriveAesKeyFromSharedSecretSimple(sharedSecret)
 
@@ -209,7 +211,8 @@ class DecryptDhPageVM : SoboViewModel() {
 
     fun validate(): Boolean {
         clearErrors()
-        val resCiphertextHex = validateWithLambda(isErrorCiphertextHex, { strNotEmpty(ciphertextHex.value) })
+        val resCiphertextHex =
+            validateWithLambda(isErrorCiphertextHex, { strNotEmpty(ciphertextHex.value) })
         val resSecretKeyHex = validateSecretKeyHex(secretKeyHex.value)
         val resOurPublicKeyHex = validateOurPublicKeyHex(ourPublicKeyHex.value)
         val resTheirPublicKeyHex = validateTheirPublicKeyHex(theirPublicKeyHex.value)
@@ -255,7 +258,6 @@ class DecryptDhPageVM : SoboViewModel() {
     fun toggleTheirPublicKeyHexVisible() {
         isTheirPublicKeyHexVisible.value = !isTheirPublicKeyHexVisible.value
     }
-
 
 
 }

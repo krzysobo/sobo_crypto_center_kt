@@ -12,12 +12,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
-import sobocryptocenter.composeapp.generated.resources.Res
-import sobocryptocenter.composeapp.generated.resources.clear_all
-import sobocryptocenter.composeapp.generated.resources.cryptocenter_decryption
-import sobocryptocenter.composeapp.generated.resources.decrypt
-import sobocryptocenter.composeapp.generated.resources.decryption_error_header
-import sobocryptocenter.composeapp.generated.resources.error_unknown_error
+import com.krzysobo.cryptocenter.appres.AppRes
 import com.krzysobo.cryptocenter.getPlatform
 import com.krzysobo.cryptocenter.view.common.encryptDecryptSwitcherButtons
 import com.krzysobo.cryptocenter.view.decrypt.CiphertextHexInputWidget
@@ -71,15 +66,15 @@ fun PageSoboCryptoCenterDecrypt() {
         }
 
         item {
-            PageHeader(anyResText(AnyRes(Res.string.cryptocenter_decryption)))
+            PageHeader(anyResText(AnyRes(AppRes.string.cryptocenter_decryption)))
         }
 
         item {
             if (vm.isApiError.value) {
                 val errorText = if (vm.apiErrorDetails.value != "") vm.apiErrorDetails.value else
-                    anyResText(AnyRes(Res.string.error_unknown_error))
+                    anyResText(AnyRes(AppRes.string.error_unknown_error))
                 ErrorMessageBox(
-                    "* ${anyResText(AnyRes(Res.string.decryption_error_header))} *",
+                    "* ${anyResText(AnyRes(AppRes.string.decryption_error_header))} *",
                     errorText
                 )
             }
@@ -116,7 +111,7 @@ fun PageSoboCryptoCenterDecrypt() {
                     }
                 },
                 modifier = Modifier.padding(all = 10.dp).fillMaxWidth()
-            ) { Text(anyResText(AnyRes(Res.string.decrypt))) }
+            ) { Text(anyResText(AnyRes(AppRes.string.decrypt))) }
         }
 
         item {
@@ -133,7 +128,7 @@ fun PageSoboCryptoCenterDecrypt() {
                     }
                 },
                 modifier = Modifier.padding(all = 10.dp).fillMaxWidth()
-            ) { Text(anyResText(AnyRes(Res.string.clear_all))) }
+            ) { Text(anyResText(AnyRes(AppRes.string.clear_all))) }
         }
 
     }

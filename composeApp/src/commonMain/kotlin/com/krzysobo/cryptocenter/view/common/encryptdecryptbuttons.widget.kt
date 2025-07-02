@@ -12,13 +12,11 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
-import sobocryptocenter.composeapp.generated.resources.Res
-import sobocryptocenter.composeapp.generated.resources.decrypt
-import sobocryptocenter.composeapp.generated.resources.encrypt
+import com.krzysobo.cryptocenter.appres.AppRes
+import com.krzysobo.cryptocenter.settings.SCC_ROUTE_HANDLE
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.SoboRouter
 import com.krzysobo.soboapptpl.service.anyResText
-import com.krzysobo.cryptocenter.settings.SCC_ROUTE_HANDLE
 
 @Composable
 fun encryptDecryptSwitcherButtons(btnSelected: String = "encrypt") {
@@ -52,7 +50,7 @@ fun encryptDecryptSwitcherButtons(btnSelected: String = "encrypt") {
             Text(
                 modifier = Modifier,
                 style = if (btnSelected == "encrypt") textStyleSelected else textStyleNotSelected,
-                text = anyResText(AnyRes(Res.string.encrypt))
+                text = anyResText(AnyRes(AppRes.string.encrypt))
             )
         }
 
@@ -67,7 +65,7 @@ fun encryptDecryptSwitcherButtons(btnSelected: String = "encrypt") {
             Text(
                 modifier = Modifier,
                 style = if (btnSelected == "encrypt") textStyleSelected else textStyleNotSelected,
-                text = anyResText(AnyRes(Res.string.decrypt))
+                text = anyResText(AnyRes(AppRes.string.decrypt))
             )
 
         }

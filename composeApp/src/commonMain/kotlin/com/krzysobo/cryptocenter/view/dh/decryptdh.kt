@@ -12,40 +12,21 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
+import com.krzysobo.cryptocenter.appres.AppRes
 import com.krzysobo.cryptocenter.getPlatform
-import com.krzysobo.cryptocenter.view.common.encryptDecryptSwitcherButtons
 import com.krzysobo.cryptocenter.view.dh.decrypt.DhCiphertextInputWidget
 import com.krzysobo.cryptocenter.view.dh.decrypt.DhPlainTextOutputWidget
 import com.krzysobo.cryptocenter.view.dh.decrypt.OurKeyPairHexWidgetForDecrypt
 import com.krzysobo.cryptocenter.view.dh.decrypt.OurKeyPairSourceButtonsWidgetForDecrypt
 import com.krzysobo.cryptocenter.view.dh.decrypt.TheirPublicKeyHexWidgetForDecrypt
-import com.krzysobo.cryptocenter.view.dh.encrypt.DhCiphertextOutputWidget
-import com.krzysobo.cryptocenter.view.dh.encrypt.DhPlainTextInputWidget
-import com.krzysobo.cryptocenter.view.dh.encrypt.OurKeyPairHexWidget
-import com.krzysobo.cryptocenter.view.dh.encrypt.OurKeyPairSourceButtonsWidget
-import com.krzysobo.cryptocenter.view.dh.encrypt.TheirPublicKeyHexWidget
-import com.krzysobo.cryptocenter.view.encrypt.KeySourceButtonsWidget
 import com.krzysobo.cryptocenter.viewmodel.dh.DecryptDhPageVM
-import com.krzysobo.cryptocenter.viewmodel.dh.EncryptDhPageVM
 import com.krzysobo.cryptocenter.viewmodel.getDecryptDhPageVM
-import com.krzysobo.cryptocenter.viewmodel.getEncryptDhPageVM
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.anyResText
 import com.krzysobo.soboapptpl.widgets.ErrorMessageBox
 import com.krzysobo.soboapptpl.widgets.PageHeaderTight
 import com.krzysobo.soboapptpl.widgets.isPlatformAndroid
 import kotlinx.coroutines.launch
-import sobocryptocenter.composeapp.generated.resources.Res
-import sobocryptocenter.composeapp.generated.resources.clear_all
-import sobocryptocenter.composeapp.generated.resources.cryptocenter_decryption_dh
-import sobocryptocenter.composeapp.generated.resources.cryptocenter_encryption
-import sobocryptocenter.composeapp.generated.resources.cryptocenter_encryption_dh
-import sobocryptocenter.composeapp.generated.resources.decrypt_dh
-import sobocryptocenter.composeapp.generated.resources.decryption_error_header
-import sobocryptocenter.composeapp.generated.resources.encrypt
-import sobocryptocenter.composeapp.generated.resources.encrypt_dh
-import sobocryptocenter.composeapp.generated.resources.encryption_error_header
-import sobocryptocenter.composeapp.generated.resources.error_unknown_error
 
 
 @Composable
@@ -86,15 +67,15 @@ fun PageSoboCryptoCenterDecryptDh() {
         }
 
         item {
-            PageHeaderTight(anyResText(AnyRes(Res.string.cryptocenter_decryption_dh)))
+            PageHeaderTight(anyResText(AnyRes(AppRes.string.cryptocenter_decryption_dh)))
         }
 
         item {
             if (vm.isApiError.value) {
                 val errorText = if (vm.apiErrorDetails.value != "") vm.apiErrorDetails.value else
-                    anyResText(AnyRes(Res.string.error_unknown_error))
+                    anyResText(AnyRes(AppRes.string.error_unknown_error))
                 ErrorMessageBox(
-                    "* ${anyResText(AnyRes(Res.string.decryption_error_header))} *",
+                    "* ${anyResText(AnyRes(AppRes.string.decryption_error_header))} *",
                     errorText
                 )
             }
@@ -130,7 +111,7 @@ fun PageSoboCryptoCenterDecryptDh() {
                     }
                 },
                 modifier = Modifier.padding(all = 10.dp).fillMaxWidth()
-            ) { Text(anyResText(AnyRes(Res.string.decrypt_dh))) }
+            ) { Text(anyResText(AnyRes(AppRes.string.decrypt_dh))) }
         }
 
         item {
@@ -147,7 +128,7 @@ fun PageSoboCryptoCenterDecryptDh() {
                     }
                 },
                 modifier = Modifier.padding(all = 10.dp).fillMaxWidth()
-            ) { Text(anyResText(AnyRes(Res.string.clear_all))) }
+            ) { Text(anyResText(AnyRes(AppRes.string.clear_all))) }
         }
 
     }

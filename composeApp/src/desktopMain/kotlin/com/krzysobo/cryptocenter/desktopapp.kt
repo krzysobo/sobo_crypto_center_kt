@@ -4,11 +4,8 @@ package com.krzysobo.cryptocenter
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.window.FrameWindowScope
-import sobocryptocenter.composeapp.generated.resources.Res
-import sobocryptocenter.composeapp.generated.resources.app_name_sobo_crypto_center_desktop
+import com.krzysobo.cryptocenter.appres.AppRes
 import com.krzysobo.cryptocenter.settings.SCC_ROUTE_HANDLE
 import com.krzysobo.cryptocenter.settings.soboCryptoCenterRouteHandlesForDesktopMenu
 import com.krzysobo.cryptocenter.settings.soboCryptoCenterRoutes
@@ -32,7 +29,7 @@ fun SoboCryptoCenterDesktopApp() {
 
     SoboTheme {
         Column {
-            Text(stringResource(Res.string.app_name_sobo_crypto_center_desktop))
+            Text(stringResource(AppRes.string.app_name_sobo_crypto_center_desktop))
             PageTabsWithOutletAndLogin(
                 soboCryptoCenterRouteHandlesForDesktopMenu,
                 soboCryptoCenterRoutes

@@ -14,15 +14,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import sobocryptocenter.composeapp.generated.resources.Res
-import sobocryptocenter.composeapp.generated.resources.cancel
-import sobocryptocenter.composeapp.generated.resources.from_password
-import com.krzysobo.soboapptpl.pubres.PubRes as AppTplPubRes
+import com.krzysobo.cryptocenter.appres.AppRes
+import com.krzysobo.cryptocenter.viewmodel.EncryptPageVM
+import com.krzysobo.cryptocenter.viewmodel.getEncryptPageVM
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.anyResText
 import com.krzysobo.soboapptpl.widgets.PasswordWidget
-import com.krzysobo.cryptocenter.viewmodel.EncryptPageVM
-import com.krzysobo.cryptocenter.viewmodel.getEncryptPageVM
+import com.krzysobo.soboapptpl.pubres.PubRes as AppTplPubRes
 
 @Composable
 fun SecretKeyHexSrcPassWidget() {
@@ -62,7 +60,7 @@ fun SecretKeyHexSrcPassWidget() {
 //                        println("Generate AES KEY FROM PASSWORD!!!")
 //                    vm.openSecretKeyHexSrcPassWidget()
                     }) {
-                    Text(anyResText(AnyRes(Res.string.from_password)))
+                    Text(anyResText(AnyRes(AppRes.string.from_password)))
                 }
 
                 OutlinedButton(
@@ -78,7 +76,7 @@ fun SecretKeyHexSrcPassWidget() {
 //                        println("CANCEL GENERATION FROM PASSWORD")
                         vm.closeSecretKeyHexSrcPassWidget()
                     }) {
-                    Text(anyResText(AnyRes(Res.string.cancel)))
+                    Text(anyResText(AnyRes(AppRes.string.cancel)))
                 }
             }
         }

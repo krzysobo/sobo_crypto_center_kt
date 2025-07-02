@@ -3,12 +3,40 @@ import org.gradle.api.Plugin
 import org.w3c.dom.Element
 import java.io.File
 import javax.xml.parsers.DocumentBuilderFactory
+import org.gradle.api.provider.Property
+import org.gradle.api.tasks.Input
+import org.gradle.api.tasks.InputDirectory
+import org.gradle.api.tasks.OutputDirectory
+import org.gradle.internal.impldep.com.google.api.client.util.Value
+import org.gradle.kotlin.dsl.create
+
+//import org.gradle.api.tasks.InputDirectory
+//import org.gradle.api.tasks.OutputDirectory
 //import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
+
+// Extension to allow configuration in build.gradle.kts
+interface SoboStringResourcesExtension {
+    val resourcesDir: Property<String>
+    val outputDir: Property<String>
+    val resourcesOutputFile: Property<String>
+    val resourcesOutputPackage: Property<String>
+}
 
 
 class BuildAcmeResourcesPlugin : Plugin<Project> {
     override fun apply(project: Project) {
         println("\n====>  Build Acme ALL Resources Plugin Started - it is here!!!  ${this.javaClass.simpleName} applied on ${project.name}")
+        val extension =
+            project.extensions.create<SoboStringResourcesExtension>(
+                "soboStringResourcesConfig"
+            )
+                .apply {
+                    // Set default values
+                    resourcesDir.convention("src/commonMain/composeResources")
+                    outputDir.convention("${project.buildDir}/generated/source/kmp/main/kotlin/com/krzysobo/cryptocenter/generated")
+                    resourcesOutputPackage.convention("com.krzysobo.cryptocenter.generated")
+                    resourcesOutputFile.convention("StringResources.kt")
+                }
 
         project.tasks.register<BuildAcmeStringResourcesTask>(
             "buildAcmeStringResourcesTask",
@@ -17,8 +45,13 @@ class BuildAcmeResourcesPlugin : Plugin<Project> {
             group = "build"
             description =
                 "Generate Kotlin file with string resources from values-XX/strings.xml. Create to enable easier language switching."
-            resourcesDir.set(project.file("src/commonMain/composeResources"))
-            outputDir.set(project.file("${project.buildDir}/generated/source/kmp/main/kotlin/com/krzysobo/cryptocenter/generated"))
+            resourcesDir.set(project.file(extension.resourcesDir))
+            outputDir.set(project.file(extension.outputDir))
+            resourcesOutputFile = extension.resourcesOutputFile.get()
+            resourcesOutputPackage = extension.resourcesOutputPackage.get()
+
+//            resourcesDir.set(project.file("src/commonMain/composeResources"))
+//            outputDir.set(project.file("${project.buildDir}/generated/source/kmp/main/kotlin/com/krzysobo/cryptocenter/generated"))
         }
 
         project.tasks.named("generateResourceAccessorsForCommonMain") {
@@ -36,15 +69,23 @@ class BuildAcmeResourcesPlugin : Plugin<Project> {
 
 
 abstract class BuildAcmeStringResourcesTask : org.gradle.api.DefaultTask() {
-    @get:org.gradle.api.tasks.InputDirectory
+    @get:InputDirectory
     abstract val resourcesDir: org.gradle.api.file.DirectoryProperty
 
-    @get:org.gradle.api.tasks.OutputDirectory
+    @get:OutputDirectory
     abstract val outputDir: org.gradle.api.file.DirectoryProperty
+
+    @get:Input
+    abstract var resourcesOutputFile: String
+
+    @get:Input
+    abstract var resourcesOutputPackage: String
+
+
 
     fun generateResourcesObjectFileHashmap(resourceMap: Map<String, Map<String, String>>): String {
         return """
-    package com.acme.uifw.generated
+    package $resourcesOutputPackage
 
     object StringResources {
         val resources: Map<String, Map<String, String>> = mapOf(
@@ -88,7 +129,7 @@ abstract class BuildAcmeStringResourcesTask : org.gradle.api.DefaultTask() {
         }
 
         return """
-    package com.krzysobo.cryptocenter.generated
+    package $resourcesOutputPackage
 
     import com.krzysobo.soboapptpl.service.SoboStringResource
 
@@ -135,7 +176,7 @@ abstract class BuildAcmeStringResourcesTask : org.gradle.api.DefaultTask() {
             resourceMap[langCode] = parseStringsResourceXml(file)
         }
 
-        val outputFile = outputDir.file("StringResources.kt").get().asFile
+        val outputFile = outputDir.file(resourcesOutputFile).get().asFile
         outputFile.parentFile.mkdirs()
         outputFile.writeText(generateResourcesObjectFileObject(resourceMap))
     }

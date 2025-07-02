@@ -10,7 +10,6 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.serialization)
-//    id("generate-sobo-resources")
     id("hello-world-class")
     id("build-acme-resources")
 }
